@@ -1,19 +1,19 @@
-.app {
-  text-align: center;
-  max-width: 600px;
+.App {
+  max-width: 420px;
   margin: 0 auto;
 }
 
-.logo {
-  animation: logo-spin infinite 15s linear;
+.App-logo {
+  animation: App-logo-spin infinite 15s linear;
   height: 120px;
 }
 
-.header {
+.App-header {
   padding: 20px;
+  text-align: center;
 }
 
-@keyframes logo-spin {
+@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
