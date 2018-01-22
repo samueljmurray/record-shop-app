@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import RecordsListContainer from "./RecordsListContainer";
-import logo from './vinyl.svg';
+import RecordsListContainer from "../RecordsList/RecordsListContainer";
+import logo from '../../img/vinyl.svg';
 import './App.css';
 
 class App extends Component {

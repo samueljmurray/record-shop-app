@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Record from "./Record";
+import Record from "../Record/Record";
 
 export default (props => (
   <div>
