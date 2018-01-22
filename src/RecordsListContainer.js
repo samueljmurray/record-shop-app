@@ -5,10 +5,10 @@ import gql from 'graphql-tag';
 import RecordsList from "./RecordsList";
 
 const QUERY = gql`
-  query ListRecords($first: Int, $page: Int){
+  query ListRecords($limit: Int, $offset: Int){
     listRecords(
-      first: $first,
-      page: $page
+      limit: $limit,
+      offset: $offset
     ) {
       id
       title
@@ -26,8 +26,8 @@ export default graphql(QUERY, {
   options(props) {
     return {
       variables: {
-        first: RECORDS_PER_PAGE,
-        page: 1
+        limit: RECORDS_PER_PAGE,
+        offset: 0
       }
     };
   },
@@ -38,7 +38,7 @@ export default graphql(QUERY, {
       loadMoreEntries() {
         return fetchMore({
           variables: {
-            page: Math.ceil(listRecords.length/RECORDS_PER_PAGE) + 1
+            offset: listRecords.length
           },
           updateQuery(previousResult, {fetchMoreResult}) {
             if (!fetchMoreResult) return previousResult;
@@ -56,6 +56,6 @@ export default graphql(QUERY, {
     {props.listRecords && (
       <RecordsList records={props.listRecords} />
     )}
-    <button className="linkButton" onClick={props.loadMoreEntries}>Load more</button>
+    {props.listRecords && <button className="linkButton" onClick={props.loadMoreEntries}>Load more</button>}
   </div>
 ));
