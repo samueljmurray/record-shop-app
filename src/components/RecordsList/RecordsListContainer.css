@@ -1,0 +1,8 @@
+.RecordsListContainer {
+  padding: 16px 32px;
+  background-color: #F7F7F7;
+}
+
+.RecordsListContainer-load-more {
+  text-align: center;
+}

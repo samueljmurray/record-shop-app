@@ -3,10 +3,11 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import RecordsList from "./RecordsList";
+import './RecordsListContainer.css';
 
 const QUERY = gql`
-  query ListRecords($limit: Int, $offset: Int){
-    listRecords(
+  query GetPageOfRecords($limit: Int, $offset: Int) {
+    records(
       limit: $limit,
       offset: $offset
     ) {
@@ -18,6 +19,7 @@ const QUERY = gql`
         name
       }
     }
+    recordsCount
   }
 `;
 const RECORDS_PER_PAGE = 2;
@@ -31,19 +33,20 @@ export default graphql(QUERY, {
       }
     };
   },
-  props({ data: { loading, listRecords, fetchMore } }) {
+  props({ data: { loading, records, recordsCount, fetchMore } }) {
     return {
       loading,
-      listRecords,
+      records,
+      recordsCount,
       loadMoreEntries() {
         return fetchMore({
           variables: {
-            offset: listRecords.length
+            offset: records.length
           },
           updateQuery(previousResult, {fetchMoreResult}) {
             if (!fetchMoreResult) return previousResult;
             return Object.assign({}, previousResult, {
-              listRecords: [...previousResult.listRecords, ...fetchMoreResult.listRecords]
+              records: [...previousResult.records, ...fetchMoreResult.records]
             });
           }
         });
@@ -51,11 +54,15 @@ export default graphql(QUERY, {
     };
   }
 })(props => (
-  <div>
+  <div className="RecordsListContainer">
     {props.loading && <p>LOADING!</p>}
-    {props.listRecords && (
-      <RecordsList records={props.listRecords} />
+    {props.records && (
+      <RecordsList records={props.records} />
     )}
-    {props.listRecords && <button className="linkButton" onClick={props.loadMoreEntries}>Load more</button>}
+    {props.records && props.records.length < props.recordsCount && (
+      <div className="RecordsListContainer-load-more">
+        <button className="linkButton" onClick={props.loadMoreEntries}>Load more</button>
+      </div>
+    )}
   </div>
 ));
