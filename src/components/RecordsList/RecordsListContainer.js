@@ -1,9 +1,10 @@
 import React from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import RecordsList from "./RecordsList";
-import './RecordsListContainer.css';
+import styles from './RecordsListContainer.styles';
 
 const QUERY = gql`
   query GetPageOfRecords($limit: Int, $offset: Int) {
@@ -54,15 +55,19 @@ export default graphql(QUERY, {
     };
   }
 })(props => (
-  <div className="RecordsListContainer">
+  <View style={styles.root}>
     {props.loading && <p>LOADING!</p>}
     {props.records && (
       <RecordsList records={props.records} />
     )}
     {props.records && props.records.length < props.recordsCount && (
-      <div className="RecordsListContainer-load-more">
-        <button className="linkButton" onClick={props.loadMoreEntries}>Load more</button>
-      </div>
+      <View>
+        <TouchableOpacity onPress={props.loadMoreEntries}>
+          <Text style={styles.loadMore}>
+            Load more
+          </Text>
+        </TouchableOpacity>
+      </View>
     )}
-  </div>
+  </View>
 ));

@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
-import RecordsListContainerRest from "../RecordsList/RecordsListContainerRest";
-import RecordsListContainerSimple from "../RecordsList/RecordsListContainerSimple";
-import RecordsListContainerComplex from "../RecordsList/RecordsListContainerComplex";
-import logo from '../../img/vinyl.svg';
-import './App.css';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-class App extends Component {
-  render() {
-    const showAll = window.location.pathname === "/all";
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <article className="App-body">
-          <div className="App-listing-container">
-            { showAll && <RecordsListContainerRest /> }
-          </div>
-          <div className="App-listing-container">
-            <RecordsListContainerSimple />
-          </div>
-          <div className="App-listing-container">
-            { showAll && <RecordsListContainerComplex /> }
-          </div>
-        </article>
-      </div>
-    );
-  }
-}
+import Layout from '../Layout/Layout';
 
-export default App;
+const apolloClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "http://localhost:4000/graphql",
+    headers: {
+      "accept": "application/json"
+    }
+  }),
+  cache: new InMemoryCache()
+});
+
+export default () => (
+  <ApolloProvider client={apolloClient}>
+    <Layout/>
+  </ApolloProvider>
+);
