@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native';
 
-import App from './components/App/App';
+import App from 'shared/components/App/App';
 import 'normalize.css';
 import './index.css';
 
