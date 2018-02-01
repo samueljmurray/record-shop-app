@@ -10,7 +10,7 @@ import Layout from '../Layout/Layout';
 
 const apolloClient = new ApolloClient({
   link: new HttpLink({
-    uri: "http://localhost:4000/graphql",
+    uri: "http://192.168.228.194:4000/graphql",
     headers: {
       "accept": "application/json"
     }

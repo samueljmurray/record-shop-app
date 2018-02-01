@@ -18,9 +18,62 @@ const screenSizes = [
   }
 ];
 
+export const fonts = {
+  robotoMono: {
+    thin: {
+      fontFamily: platform({
+        android: "RobotoMono-Thin",
+        ios: "Roboto Mono"
+      }),
+      fontWeight: platform({
+        android: "400",
+        ios: "200"
+      })
+    },
+    light: {
+      fontFamily: platform({
+        android: "RobotoMono-Light",
+        ios: "Roboto Mono"
+      }),
+      fontWeight: platform({
+        android: "400",
+        ios: "300"
+      })
+    },
+    normal: {
+      fontFamily: platform({
+        android: "RobotoMono-Regular",
+        ios: "Roboto Mono"
+      }),
+      fontWeight: "400"
+    },
+    medium: {
+      fontFamily: platform({
+        android: "RobotoMono-Medium",
+        ios: "Roboto Mono"
+      }),
+      fontWeight: platform({
+        android: "400",
+        ios: "500"
+      })
+    },
+    bold: {
+      fontFamily: platform({
+        android: "RobotoMono-Bold",
+        ios: "Roboto Mono"
+      }),
+      fontWeight: platform({
+        android: "400",
+        ios: "700"
+      })
+    }
+  }
+}
+
 export const defaultText = {
-  fontFamily: "Roboto Mono",
-  fontSize: 16
+  ...fonts.robotoMono.normal,
+  fontSize: 16,
+  color: "black"
 };
 
 export function platform(valueOptions: Object): any {

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { defaultText } from '../../styles';
+import { defaultText, fonts } from '../../styles';
 
 export default StyleSheet.create({
   root: {
@@ -11,15 +11,15 @@ export default StyleSheet.create({
   },
   title: {
     ...defaultText,
-    fontWeight: "500",
+    ...fonts.robotoMono.medium,
     textDecorationLine: "underline"
   },
   artistsNames: {
     ...defaultText,
-    fontWeight: "300"
+    ...fonts.robotoMono.light
   },
   year: {
     ...defaultText,
-    fontWeight: "300"
+    ...fonts.robotoMono.light
   }
 });
