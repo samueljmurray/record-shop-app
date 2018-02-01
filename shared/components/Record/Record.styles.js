@@ -3,6 +3,7 @@ import { defaultText } from '../../styles';
 
 export default StyleSheet.create({
   root: {
+    flex: 1,
     marginVertical: 16
   },
   archived: {

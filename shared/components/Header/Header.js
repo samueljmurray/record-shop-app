@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Animated, Easing, View, Image } from 'react-native';
 
 import styles from "./Header.styles";
-import logo from '../../img/vinyl.svg';
+import logo from '../../img/vinyl.png';
 
 class Header extends Component {
   state = {

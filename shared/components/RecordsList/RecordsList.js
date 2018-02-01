@@ -1,13 +1,15 @@
 import React from 'react';
+import { View } from 'react-native';
 
-import Record from "../Record/Record";
+import Record from '../Record/Record';
+import styles from './RecordsList.styles';
 
 export default (props => (
-  <div>
+  <View style={styles.root}>
     {
       props.records.map(record => (
         <Record key={`record-${record.id}`} record={record} />
       ))
     }
-  </div>
+  </View>
 ));

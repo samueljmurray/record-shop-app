@@ -1,13 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Platform, View, ScrollView } from 'react-native';
 
 import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
 import RecordsListContainer from "../RecordsList/RecordsListContainer";
 import styles from './Layout.styles';
 
+const RootElement = Platform.OS === "web" ? View : ScrollView;
+
 export default () => (
-  <View style={styles.root}>
+  <RootElement style={styles.root}>
     <Header/>
     <View style={styles.body}>
       <View style={styles.nav}>
@@ -17,5 +19,5 @@ export default () => (
         <RecordsListContainer/>
       </View>
     </View>
-  </View>
+  </RootElement>
 );

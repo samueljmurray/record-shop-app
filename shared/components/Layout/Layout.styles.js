@@ -1,18 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import { screenSize, platform } from '../../styles';
 
 export default StyleSheet.create({
   root: {
     flex: 1
   },
   body: {
-    flexDirection: "row"
+    flexDirection: screenSize({m: "column"}, "row"),
+    marginHorizontal: screenSize({m: 16}, 0)
   },
   nav: {
     flex: 1,
-    marginHorizontal: 16
+    marginHorizontal: screenSize({m: 0}, 16),
+    marginBottom: screenSize({m: 16}, 0)
   },
   listing: {
-    marginRight: 16,
+    marginRight: screenSize({m: 0}, 16),
     flex: 4
   }
 });
