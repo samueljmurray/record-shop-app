@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { defaultText } from '../../styles';
 
 export default StyleSheet.create({
   root: {
@@ -9,5 +10,10 @@ export default StyleSheet.create({
     height: 120,
     width: 120,
     resizeMode: "contain"
+  },
+  welcome: {
+    ...defaultText,
+    fontWeight: "700",
+    marginTop: 16
   }
 });
