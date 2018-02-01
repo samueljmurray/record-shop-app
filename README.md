@@ -2,7 +2,7 @@
 
 ## Web
 
-```
+```bash
 # Installation
 $ cd web
 $ npm i
@@ -14,7 +14,7 @@ $ npm start
 
 ## Native
 
-```
+```bash
 # Installation
 $ cd native
 $ npm i
