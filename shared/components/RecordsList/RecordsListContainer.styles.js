@@ -8,11 +8,6 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
     backgroundColor: "#F7F7F7"
   },
-  loadMore: {
-    ...defaultText,
-    textAlign: "center",
-    textDecorationLine: "underline"
-  },
   loading: {
     ...defaultText,
     ...fonts.robotoMono.bold

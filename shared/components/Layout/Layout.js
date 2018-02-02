@@ -14,9 +14,9 @@ export default () => (
       <View style={styles.listing}>
         <RecordsListContainer/>
       </View>
-      <View style={styles.nav}>
+      {/* <View style={styles.nav}>
         <Nav/>
-      </View>
+      </View> */}
     </View>
   </RootElement>
 );

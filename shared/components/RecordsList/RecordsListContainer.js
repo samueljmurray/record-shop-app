@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -58,16 +58,11 @@ export default graphql(QUERY, {
   <View style={styles.root}>
     {props.loading && <Text style={styles.loading}>LOADING!</Text>}
     {props.records && (
-      <RecordsList records={props.records} />
-    )}
-    {props.records && props.records.length < props.recordsCount && (
-      <View>
-        <TouchableOpacity onPress={props.loadMoreEntries}>
-          <Text style={styles.loadMore}>
-            Load more
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <RecordsList
+        records={props.records}
+        recordsCount={props.recordsCount}
+        loadMoreEntries={props.loadMoreEntries}
+      />
     )}
   </View>
 ));
