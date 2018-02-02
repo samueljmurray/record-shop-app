@@ -11,11 +11,11 @@ export default StyleSheet.create({
   },
   nav: {
     flex: 1,
-    marginHorizontal: screenSize({m: 0}, 16),
+    marginRight: screenSize({m: 0}, 16),
     marginBottom: screenSize({m: 16}, 0)
   },
   listing: {
-    marginRight: screenSize({m: 0}, 16),
+    marginHorizontal: screenSize({m: 0}, 16),
     flex: 4
   }
 });

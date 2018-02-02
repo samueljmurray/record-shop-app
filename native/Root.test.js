@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './App';
+import Root from './Root';
 
 import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
+  const rendered = renderer.create(<Root />).toJSON();
   expect(rendered).toBeTruthy();
 });
