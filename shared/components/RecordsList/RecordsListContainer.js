@@ -56,7 +56,7 @@ export default graphql(QUERY, {
   }
 })(props => (
   <View style={styles.root}>
-    {props.loading && <Text>LOADING!</Text>}
+    {props.loading && <Text style={styles.loading}>LOADING!</Text>}
     {props.records && (
       <RecordsList records={props.records} />
     )}

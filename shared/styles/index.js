@@ -21,51 +21,24 @@ const screenSizes = [
 export const fonts = {
   robotoMono: {
     thin: {
-      fontFamily: platform({
-        android: "RobotoMono-Thin",
-        ios: "Roboto Mono"
-      }),
-      fontWeight: platform({
-        android: "400",
-        ios: "200"
-      })
+      fontFamily: platform({android: "RobotoMono-Thin"}, "Roboto Mono"),
+      fontWeight: platform({android: "400"}, "200")
     },
     light: {
-      fontFamily: platform({
-        android: "RobotoMono-Light",
-        ios: "Roboto Mono"
-      }),
-      fontWeight: platform({
-        android: "400",
-        ios: "300"
-      })
+      fontFamily: platform({android: "RobotoMono-Light"}, "Roboto Mono"),
+      fontWeight: platform({android: "400"}, "300")
     },
     normal: {
-      fontFamily: platform({
-        android: "RobotoMono-Regular",
-        ios: "Roboto Mono"
-      }),
+      fontFamily: platform({android: "RobotoMono-Regular"}, "Roboto Mono"),
       fontWeight: "400"
     },
     medium: {
-      fontFamily: platform({
-        android: "RobotoMono-Medium",
-        ios: "Roboto Mono"
-      }),
-      fontWeight: platform({
-        android: "400",
-        ios: "500"
-      })
+      fontFamily: platform({android: "RobotoMono-Medium"}, "Roboto Mono"),
+      fontWeight: platform({android: "400"}, "500")
     },
     bold: {
-      fontFamily: platform({
-        android: "RobotoMono-Bold",
-        ios: "Roboto Mono"
-      }),
-      fontWeight: platform({
-        android: "400",
-        ios: "700"
-      })
+      fontFamily: platform({android: "RobotoMono-Bold"}, "Roboto Mono"),
+      fontWeight: platform({android: "400"}, "700")
     }
   }
 }
@@ -76,8 +49,12 @@ export const defaultText = {
   color: "black"
 };
 
-export function platform(valueOptions: Object): any {
-  return valueOptions[Platform.OS];
+export function platform(valueOptions: Object, defaultValue: any): any {
+  if (Platform.OS in valueOptions) {
+    return valueOptions[Platform.OS];
+  } else {
+    return defaultValue;
+  }
 }
 
 export function screenSize(screenSizeOptions: Object, defaultValue: any): any {

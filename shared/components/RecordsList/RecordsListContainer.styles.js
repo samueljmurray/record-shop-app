@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { defaultText } from '../../styles';
+import { defaultText, fonts } from '../../styles';
 
 export default StyleSheet.create({
   root: {
@@ -12,5 +12,9 @@ export default StyleSheet.create({
     ...defaultText,
     textAlign: "center",
     textDecorationLine: "underline"
+  },
+  loading: {
+    ...defaultText,
+    ...fonts.robotoMono.bold
   }
 });
