@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import RecordsList from "./RecordsList";
-import styles from './RecordsListContainer.styles';
 
 const QUERY = gql`
   query GetPageOfRecords($limit: Int, $offset: Int) {
@@ -55,14 +54,9 @@ export default graphql(QUERY, {
     };
   }
 })(props => (
-  <View style={styles.root}>
-    {props.loading && <Text style={styles.loading}>LOADING!</Text>}
-    {props.records && (
-      <RecordsList
-        records={props.records}
-        recordsCount={props.recordsCount}
-        loadMoreEntries={props.loadMoreEntries}
-      />
-    )}
-  </View>
+  <RecordsList
+    loadMoreEntries={props.loadMoreEntries}
+    moreEntriesExist={Array.isArray(props.records) && props.records.length < props.recordsCount}
+    records={props.records || []}
+  />
 ));

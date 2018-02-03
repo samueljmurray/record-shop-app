@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import styles from './Record.styles';
+import styles from './RecordsListItem.styles';
 
 export default (props => (
   <View style={[styles.root, props.item.archivedAt && styles.archived]}>

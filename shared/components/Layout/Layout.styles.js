@@ -16,6 +16,8 @@ export default StyleSheet.create({
   },
   listing: {
     marginHorizontal: screenSize({m: 0}, 16),
-    flex: 4
+    flex: 4,
+    backgroundColor: "#f9f9f9",
+    padding: 16
   }
 });

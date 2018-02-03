@@ -4,9 +4,11 @@ import { Text, TouchableOpacity } from 'react-native';
 import styles from './RecordListLoadMore.styles';
 
 export default (props) => (
-  <TouchableOpacity onPress={props.loadMoreEntries}>
-    <Text style={styles.loadMore}>
-      Load more
-    </Text>
-  </TouchableOpacity>
+  props.moreEntriesExist ? (
+    <TouchableOpacity onPress={props.loadMoreEntries}>
+      <Text style={styles.loadMore}>
+        Load more
+      </Text>
+    </TouchableOpacity>
+  ) : null
 );
