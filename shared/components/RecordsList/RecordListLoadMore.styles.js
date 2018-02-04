@@ -5,6 +5,7 @@ export default StyleSheet.create({
   loadMore: {
     ...defaultText,
     textAlign: "center",
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    marginVertical: 32
   }
 });

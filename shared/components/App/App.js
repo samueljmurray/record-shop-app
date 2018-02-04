@@ -6,7 +6,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import Layout from '../Layout/Layout';
+import Router from '../Router/Router';
 
 const apolloClient = new ApolloClient({
   link: new HttpLink({
@@ -20,6 +20,6 @@ const apolloClient = new ApolloClient({
 
 export default () => (
   <ApolloProvider client={apolloClient}>
-    <Layout/>
+    <Router/>
   </ApolloProvider>
 );

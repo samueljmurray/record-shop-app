@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -22,7 +21,7 @@ const QUERY = gql`
     recordsCount
   }
 `;
-const RECORDS_PER_PAGE = 2;
+const RECORDS_PER_PAGE = 10;
 
 export default graphql(QUERY, {
   options(props) {
@@ -33,11 +32,15 @@ export default graphql(QUERY, {
       }
     };
   },
-  props({ data: { loading, records, recordsCount, fetchMore } }) {
+  props({
+    data: { loading, records, recordsCount, fetchMore },
+    ownProps: { navigation }
+  }) {
     return {
       loading,
       records,
       recordsCount,
+      navigation,
       loadMoreEntries() {
         return fetchMore({
           variables: {
@@ -50,13 +53,28 @@ export default graphql(QUERY, {
             });
           }
         });
+      },
+      reloadEntries() {
+        return fetchMore({
+          variables: {
+            offset: 0
+          },
+          updateQuery(previousResult, {fetchMoreResult}) {
+            return Object.assign({}, previousResult, {
+              records: fetchMoreResult.records
+            });
+          }
+        });
       }
     };
   }
 })(props => (
   <RecordsList
+    loading={props.loading}
     loadMoreEntries={props.loadMoreEntries}
-    moreEntriesExist={Array.isArray(props.records) && props.records.length < props.recordsCount}
-    records={props.records || []}
+    moreEntriesExist={props.records && props.records.length < props.recordsCount}
+    navigation={props.navigation}
+    records={props.records}
+    reloadEntries={props.reloadEntries}
   />
 ));

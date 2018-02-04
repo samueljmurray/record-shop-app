@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <p>This is the website</p>;
+export default () => <p>The Chop House Website</p>;
