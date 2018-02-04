@@ -28,8 +28,8 @@ export default StyleSheet.create({
   image: {
     height: imageWidth,
     width: imageWidth,
-    maxWidth: 600,
-    maxHeight: 600,
+    maxWidth: 300,
+    maxHeight: 300,
     resizeMode: "cover"
   },
   info: {

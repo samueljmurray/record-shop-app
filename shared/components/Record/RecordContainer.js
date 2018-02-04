@@ -23,7 +23,7 @@ export default graphql(QUERY, {
   options(props) {
     return {
       variables: {
-        id: props.navigation.state.params.id
+        id: props.routeParams.id
       }
     };
   }

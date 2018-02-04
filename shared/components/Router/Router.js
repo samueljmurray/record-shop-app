@@ -1,5 +1,5 @@
 import React from 'react';
-import { View} from 'react-native';
+import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import RecordContainer from '../Record/RecordContainer';
