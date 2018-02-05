@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Animated, Easing, View, Image, Platform, Text } from 'react-native';
 
-import HeaderText from './HeaderText';
 import styles from './Header.styles';
 import logo from '../../img/vinyl.png';
 
@@ -33,7 +32,6 @@ class Header extends Component {
     return (
       <View style={styles.root}>
         <Animated.Image source={logo} style={[styles.logo, {transform: [{ rotate: spin}]}]} />
-        <HeaderText/>
       </View>
     );
   }
