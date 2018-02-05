@@ -7,7 +7,10 @@ import RecordListLoadMore from './RecordListLoadMore';
 import styles from './RecordsList.styles';
 
 export default (props => (
-  <View style={styles.root}>
+  <View
+    accessibilityRole="main"
+    style={styles.root}
+  >
     <Header/>
     {!props.records || props.records.length === 0 && <ActivityIndicator/>}
     {!!props.records && props.records.length > 0 && props.records.map(record => (

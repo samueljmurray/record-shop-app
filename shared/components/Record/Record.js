@@ -22,7 +22,10 @@ export default ({ record }) => (
         />
       )}
       <View style={styles.info}>
-        <Text style={styles.title}>
+        <Text
+          accessibilityRole="heading"
+          style={styles.title}
+        >
           {record.title}
         </Text>
         <Text style={styles.artistsNames}>

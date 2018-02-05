@@ -30,7 +30,10 @@ class Header extends Component {
     });
 
     return (
-      <View style={styles.root}>
+      <View
+        accessibilityRole="banner"
+        style={styles.root}
+      >
         <Animated.Image source={logo} style={[styles.logo, {transform: [{ rotate: spin}]}]} />
       </View>
     );

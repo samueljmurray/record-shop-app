@@ -5,7 +5,10 @@ import styles from './RecordListLoadMore.styles';
 
 export default (props) => (
   props.moreEntriesExist ? (
-    <TouchableOpacity onPress={props.loadMoreEntries}>
+    <TouchableOpacity
+      accessibilityRole="button"
+      onPress={props.loadMoreEntries}
+    >
       <Text style={styles.loadMore}>
         Load more
       </Text>

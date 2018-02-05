@@ -21,7 +21,7 @@ const QUERY = gql`
     recordsCount
   }
 `;
-const RECORDS_PER_PAGE = 10;
+const RECORDS_PER_PAGE = 5;
 
 export default graphql(QUERY, {
   options(props) {
